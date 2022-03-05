@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/content/style.css" />
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="~/images/logo.png" alt="" width="60" height="60">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav w-100 align-items-center">
+                    <a class="nav-link fs-5" aria-current="page" href="/">Home</a>
+
+                    @await Component.InvokeAsync("PiesCategories")
+                    @await Component.InvokeAsync("ShoppingCartSummary")
+                    <partial name="_LoginPartial" />
+
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+
+
+    @RenderSection("Scripts", required: false)
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

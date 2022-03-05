@@ -1,0 +1,47 @@
+﻿@model ShoppingCartViewModel
+@{
+    ViewData["Title"] = "Cart";
+}
+
+
+<div class="d-flex flex-column align-items-center">
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["message"]
+        </div>
+    }
+    <h2>Cart</h2>
+    <table class="table table-hover table-bordered shadow-sm" style="max-width: 900px">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Price</th>
+                <th scope="col">Sub Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model.ShoppingCart.GetShoppingCartItems())
+            {
+                <tr>
+
+                    <td><a asp-controller="pie" asp-action="details" asp-route-id="@item.Pie.PieId" style="text-decoration: none">@item.Pie.Name</a></td>
+                    <td>@item.Amount</td>
+                    <td>@item.Pie.Price</td>
+                    <td>@(item.Amount * @item.Pie.Price) $</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <th>Total:</th>
+                <th>@Model.ShoppingCartTotal $</th>
+            </tr>
+        </tfoot>
+    </table>
+    <a asp-controller="Order" asp-action="Checkout" class="btn btn-primary">Checkout</a>
+
+</div>

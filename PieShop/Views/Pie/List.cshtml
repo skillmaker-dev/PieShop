@@ -1,0 +1,14 @@
+﻿
+@model PieListViewModel
+@{
+    ViewData["Title"] = Model.CurrentCategory ?? "All Pies";
+}
+
+
+
+<div class="d-flex flex-wrap justify-content-center" style="max-width: 1500px; margin: 5rem auto;">
+    @foreach (var pie in Model.Pies)
+    {
+        <partial name="_PieCard" model="pie" />
+    }
+</div>

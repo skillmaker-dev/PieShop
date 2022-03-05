@@ -1,0 +1,15 @@
+﻿@model Pie
+@{
+    ViewData["Title"] = @Model.Name;
+}
+<div class="d-flex justify-content-center">
+    <div class="card m-5 shadow-sm" style="max-width: 60rem">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">@Model.LongDescription</p>
+            <p class="card-text"><p class="text-muted">@Model.Price $</p></p>
+            <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pieId="@Model.PieId" class="btn btn-success">Add To Cart</a>
+        </div>
+        <img src="@Model.ImageUrl" class="card-img-bottom img-fluid" alt="...">
+    </div>
+</div>

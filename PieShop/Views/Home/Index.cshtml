@@ -1,0 +1,15 @@
+﻿@model HomeViewModel
+@{ 
+    ViewData["Title"] = "Home";
+}
+    <div class="d-flex flex-column align-items-center">
+        <partial name="_Carousel" />
+
+        <h2>Pies of the week</h2>
+        <div class="d-flex flex-wrap">
+            @foreach (var pie in Model.PiesOfTheWeek)
+            {
+                <partial name="_PieCard" model="@pie" />
+            }
+        </div>
+    </div>

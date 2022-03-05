@@ -1,0 +1,12 @@
+﻿@model ShoppingCartViewModel
+    <div class="ms-auto">
+        <a class="nav-link fs-5" asp-controller="shoppingCart" asp-action="cart">
+            <button type="button" class="btn btn-outline-success rounded position-relative">
+                <i class="lni lni-cart-full fs-5"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    @Model.ShoppingCart.ShoppingCartItems.Count()
+
+                </span>
+            </button>
+            </a>
+    </div>
